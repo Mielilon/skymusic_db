@@ -1,0 +1,30 @@
+_id,name,author,release_date,genre,duration_in_seconds,album,logo,track_file
+8,Chase,Alexander Nakarada,2005-06-11,Классическая музыка,205,Chase,"",music_files/Alexander_Nakarada_-_Chase.mp3
+9,Open Sea epic,Frank Schroter,2019-06-12,Классическая музыка,165,Open Sea epic,"",music_files/Frank_Schroter_-_Open_Sea_epic.mp3
+10,Sneaky Snitch,Kevin Macleod,2022-04-16,Классическая музыка,305,Sneaky Snitch,"",music_files/Kevin_Macleod_-_Sneaky_Snitch.mp3
+11,Secret Garden,Mixkit,1972-06-06,Классическая музыка,324,Secret Garden,"",music_files/Mixkit_-_Secret_Garden.mp3
+12,A journey of successfull winners,-,1985-02-02,Классическая музыка,255,-,"",music_files/Musiclfiles_-_A_Journey_For_Successful_Winners.mp3
+13,Epic Heroic Conquest,-,1962-01-15,Классическая музыка,200,Epic Heroic Conquest,"",music_files/Musiclfiles_-_Epic_Heroic_Conquest.mp3
+14,The March OF The Final Battle,-,2011-11-02,Классическая музыка,206,The March OF The Final Battle,"",music_files/musiclfiles_-_The_March_Of_The_Final_Battle.mp3
+15,True Summer,-,2012-06-01,Классическая музыка,253,True Summer,"",music_files/Musiclfiles_-_True_Summer.mp3
+16,Background Sensible,Waltz Piano,2003-05-12,Классическая музыка,135,Background Sensible,"",music_files/Waltz_Piano_-_Background_Sensible.mp3
+17,Cinematic,Winniethemoog,2004-10-01,Классическая музыка,206,Cinematic,"",music_files/Winniethemoog_-_Cinematic.mp3
+18,Kerfuffle,AFM,2013-06-02,Электронная музыка,235,Kerfuffle,"",music_files/AFM_-_Kerfuffle.mp3
+19,Dropin,Bobby Marleni,2011-06-04,Электронная музыка,205,Defected Jamz Vol. 2,"",music_files/Bobby_Marleni_-_Dropin.mp3
+20,Rhythm Beds,Brian Holtz,2021-10-19,Электронная музыка,205,Rhythm Beds,"",music_files/Brian_Holtz_-_Rhythm_Beds.mp3
+21,Trumpets in Your Ears,Fanz,2013-05-10,Электронная музыка,165,Trumpets in Your Ears,"",music_files/Fanz_-_Trumpets_in_Your_Ears.mp3
+22,Bad Behaviors,Luke,2019-06-12,Электронная музыка,324,Bad Behaviors,"",music_files/Luke_-_Bad_Behaviors.mp3
+23,Majesty,Ryan Craig Martin,2011-12-16,Электронная музыка,301,Majesty,"",music_files/Ryan_Craig_Martin_-_Majesty.mp3
+24,Bounce,Sascha Ende,2022-07-12,Электронная музыка,205,Bounce,"",music_files/Sascha_Ende_-_bounce.mp3
+25,Deadfro5h,Starforsh,2022-04-05,Электронная музыка,205,Deadfro5h,"",music_files/Starforsh_-_Deadfro5h.mp3
+26,Insire,Voisin,2019-06-12,Электронная музыка,258,Insire,"",music_files/Voisin_-_Insire.mp3
+27,Hangtime,Wova,1991-09-06,Электронная музыка,306,Hangtime,"",music_files/Wova_-_Hangtime.mp3
+28,Carol Of The Bells,Alexander Nakarada,2022-04-16,Рок музыка,205,Carol Of The Bells,"",music_files/Alexander_Nakarada_-_Carol_Of_The_Bells.mp3
+29,Feel Good Rock,Audionautix,2020-02-12,Рок музыка,312,FAST,"",music_files/Audionautix_-_Feel_Good_Rock.mp3
+30,The World Waltz,Kevin Macleodburn,,Рок музыка,305,The Waltzer,"",music_files/Kevin_Macleodburn_-_The_World_Waltz.mp3
+31,5 cents back,MED,2005-03-03,Рок музыка,345,5 cents back,"",music_files/MED_-_5_Cents_Back.mp3
+32,Essence2,MED,1920-05-03,Электронная музыка,205,Essence2,"",music_files/MED_-_Essence2.mp3
+33,Classical Metal Workout,-,1991-09-06,Рок музыка,246,Workout,"",music_files/Musiclfiles_-_Classical_Metal_Workout.mp3
+34,Adrenelynne,Tim Kulig,2007-05-14,Рок музыка,285,Adrenelynne,"",music_files/Tim_Kulig_-_Adrenelynne.mp3
+35,Hard Metal Intro,Winniethemoog,1991-09-06,Рок музыка,255,Hard Metal,"",music_files/Winniethemoog__-_Hard_Metal_Intro.mp3
+36,Action Sport Breakbeat,Winniethemoog,1991-09-07,Рок музыка,234,Workout,"",music_files/Winniethemoog_-_Action_Sport_Breakbeat.mp3

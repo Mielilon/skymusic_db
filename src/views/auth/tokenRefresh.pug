@@ -1,0 +1,13 @@
+block content 
+  main.main
+    .login-form
+      h2.heading-secondary.ma-bt-lg Обновить токен
+      form.form.form--login
+        .form__group
+          label.form__label(for='refresh') Refresh
+          input#refresh.form__input(type='text', required)
+        .form__group
+          button.btn.btn--green POST
+      div.res
+
+  script(src='/js/tokenRefresh.js')

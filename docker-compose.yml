@@ -1,0 +1,36 @@
+version: "3"
+services:
+  skymusic-app:
+    container_name: skymusic-app
+    image: backend/skymusic-app
+    depends_on:
+      - mongo
+    restart: always
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    ports:
+      - "7500:7500"
+    links:
+      - mongo
+  mongo:
+    restart: always
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: music_db
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./mongo-data/mongo_seed.js:/docker-entrypoint-initdb.d/mongo_seed.js
+      - data:/data/db
+    ports:
+      - '27017:27017'
+    expose:
+      - "27017"
+  mongo-data:
+    build: ./mongo-data
+    links:
+      - mongo
+
+volumes:
+  data:

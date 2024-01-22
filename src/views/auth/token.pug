@@ -1,0 +1,16 @@
+block content 
+  main.main
+    .login-form
+      h2.heading-secondary.ma-bt-lg Токен
+      form.form.form--login
+        .form__group
+          label.form__label(for='email') Email
+          input#email.form__input(type='email', placeholder='you@example.com', required)
+        .form__group.ma-bt-md
+          label.form__label(for='password') Password
+          input#password.form__input(type='password', placeholder='••••••••', required, minlength='6')
+        .form__group
+          button.btn.btn--green POST
+      div.res
+
+  script(src='/js/token.js')
