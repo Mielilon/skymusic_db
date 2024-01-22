@@ -10,7 +10,7 @@ JWT_REFRESH_SECRET = <key>
 ```
 
 2. Run docker
-3. 
+
 ```
 docker-compose up
 ```
