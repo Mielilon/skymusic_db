@@ -1,42 +1,30 @@
-// Get api overview.
-const getOverView = (req, res) => {
-    res.status(200).render('base', {
-        title: 'Overview'
-    })
-}
+const loginForm = (req, res) => {
+  res.status(200).render("auth/login", {
+    title: "Login",
+  });
+};
 
-// Login form.
-const getLoginForm = (req, res) => {
-    res.status(200).render('auth/login', {
-        title: 'Login'
-    })
-}
+const signupForm = (req, res) => {
+  res.status(200).render("auth/signup", {
+    title: "Sign Up",
+  });
+};
 
-// Sign up form.
-const createAccount = (req, res) => {
-    res.status(200).render('auth/signup', {
-        title: 'Sign Up'
-    })
-}
+const tokenForm = (req, res) => {
+  res.status(200).render("auth/token", {
+    title: "Token",
+  });
+};
 
-// Token create form.
-const getTokenForm = (req, res) => {
-    res.status(200).render('auth/token', {
-        title: 'Token'
-    })
-}
-
-// Refresh token form.
-const refreshToken = (req, res) => {
-    res.status(200).render('auth/tokenRefresh', {
-        title: 'Refresh token'
-    })
-}
+const refreshTokenForm = (req, res) => {
+  res.status(200).render("auth/tokenRefresh", {
+    title: "Refresh token",
+  });
+};
 
 module.exports = {
-    getOverView,
-    getLoginForm,
-    createAccount,
-    getTokenForm,
-    refreshToken,
-}
+  loginForm,
+  signupForm,
+  tokenForm,
+  refreshTokenForm,
+};

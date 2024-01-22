@@ -1,49 +1,46 @@
-const validator = require("../utils/validate")
-const regsiterValidation = async (req, res, next) => {
-    const validateRule = {
-        "firstName": "required|string|min:3", 
-        "lastName": "required|string|min:3", 
-        "email": "required|email", 
-        "password":"required|min:6",
-    }
+const validator = require("../utils/validate");
 
-    await validator(req.body, validateRule, {}, (err, status) =>{
-        if (!status){
-            res.status(412)
-            .send({
-                success: false,
-                    message: 'Validation failed',
-                    data: err
-            })
-        
-        } else {
-            next();
-        }
-    }).catch(err => console.log(err))
-}
+const regsiterValidation = async (req, res, next) => {
+  const validateRule = {
+    firstName: "required|string|min:3",
+    lastName: "required|string|min:3",
+    email: "required|email",
+    password: "required|min:6",
+  };
+
+  await validator(req.body, validateRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: "Данные в неверном формате.",
+        data: err,
+      });
+    } else {
+      next();
+    }
+  }).catch((err) => console.log(err));
+};
 
 const loginValidation = async (req, res, next) => {
-    const validateRule = {
-        "email": "required|email", 
-        "password":"required|min:6",
-    }
+  const validateRule = {
+    email: "required|email",
+    password: "required|min:6",
+  };
 
-    await validator(req.body, validateRule, {}, (err, status) =>{
-        if (!status){
-            res.status(412)
-            .send({
-                success: false,
-                    message: 'Validation failed',
-                    data: err
-            })
-        
-        } else {
-            next();
-        }
-    }).catch(err => console.log(err))
-}
+  await validator(req.body, validateRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: "Данные в неверном формате.",
+        data: err,
+      });
+    } else {
+      next();
+    }
+  }).catch((err) => console.log(err));
+};
 
 module.exports = {
-    regsiterValidation, 
-    loginValidation
-}
+  regsiterValidation,
+  loginValidation,
+};

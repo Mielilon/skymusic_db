@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+
 module.exports = (req, res, next) => {
   try {
     const token = req.headers.authorization.replace("Bearer ", "");
@@ -7,7 +8,7 @@ module.exports = (req, res, next) => {
     next();
   } catch (err) {
     return res.status(401).json({
-      message: "Unauthorized"
+      message: "Учетные данные не были предоставлены или токен не действителен.",
     });
   }
 };
