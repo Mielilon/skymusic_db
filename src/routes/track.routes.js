@@ -27,6 +27,11 @@ router.delete(
   trackController.deleteTracksFromFavorite
 );
 router.post("/selection", verifyToken, trackController.createSelection);
+router.delete(
+  "/selection/:id/delete",
+  verifyToken,
+  trackController.deleteSelection
+);
 router.get("/selection/all", trackController.getAllSelection);
 router.get("/selection/:id", trackController.getSelectionById);
 router.delete(

@@ -63,5 +63,23 @@ trackSchema.pre("save", function (next) {
     });
 });
 
+const MEDIA_PREFIX = "https://webdev-music-003b5b991590.herokuapp.com/media/";
+
+// Middleware to add the prefix after finding documents
+trackSchema.post("find", function (docs) {
+  docs.forEach((doc) => {
+    if (doc._doc.track_file && !doc._doc.track_file.startsWith(MEDIA_PREFIX)) {
+      doc._doc.track_file = `${MEDIA_PREFIX}${doc._doc.track_file}`;
+    }
+  });
+});
+
+// Middleware to add the prefix after finding one document
+trackSchema.post("findOne", function (doc) {
+  if (doc?._doc?.track_file && !doc._doc.track_file.startsWith(MEDIA_PREFIX)) {
+    doc._doc.track_file = `${MEDIA_PREFIX}${doc._doc.track_file}`;
+  }
+});
+
 //exporting the track schema as monngose collection
 module.exports = mongoose.model("Track", trackSchema);

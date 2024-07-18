@@ -5,9 +5,12 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require("cors");
 const path = require("path");
-const port = 7500;
+const port = process.env.PORT || 7500;
 
-mongoose.connect("mongodb://root:root@mongo:27017/music_db?authSource=admin");
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://root:root@mongo:27017/music_db?authSource=admin"
+);
 
 //Initalizing the express app
 const app = express();
@@ -35,7 +38,7 @@ app.use("/", view);
 //using the track route
 app.use("/catalog", track);
 //using the auth route
-app.use("/api/auth", auth);
+app.use("/user", auth);
 
 //Run Node APP
 module.exports = app;

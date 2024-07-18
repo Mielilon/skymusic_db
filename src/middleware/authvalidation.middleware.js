@@ -2,8 +2,7 @@ const validator = require("../utils/validate");
 
 const regsiterValidation = async (req, res, next) => {
   const validateRule = {
-    firstName: "required|string|min:3",
-    lastName: "required|string|min:3",
+    username: "required|string|min:3",
     email: "required|email",
     password: "required|min:6",
   };

@@ -191,6 +191,17 @@ const createSelection = asyncHandler(async (req, res) => {
   }
 });
 
+const deleteSelection = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  await selectionModel.deleteOne({ _id: Number(id) });
+
+  return res.status(200).json({
+    success: true,
+    data: "Selection deleted successfully",
+  });
+});
+
 module.exports = {
   getAllTracks,
   getTrack,
@@ -201,6 +212,7 @@ module.exports = {
   deleteTracksFromFavorite,
   getAllSelection,
   createSelection,
+  deleteSelection,
   getSelectionById,
   addTrackToSelection,
   deleteTrackFromSelection,
