@@ -48,9 +48,9 @@ docker-compose up
 fetch("https://webdev-music-003b5b991590.herokuapp.com/user/signup/", {
   method: "POST",
   body: JSON.stringify({
-    email: "gleb@fokin.ru",
-    password: "Aa12345!!",
-    username: "gleb@fokin.ru",
+    email: "test@test.ru",
+    password: "test@test.ru",
+    username: "Testtest",
   }),
   headers: {
     // API требует обязательного указания заголовка content-type, так апи понимает что мы посылаем ему json строчку в теле запроса
@@ -63,28 +63,27 @@ fetch("https://webdev-music-003b5b991590.herokuapp.com/user/signup/", {
 
 #### 201 ответ
 
-Пользователь успешно зарегистрирован, в теле ответа будет объект созданного пользователя:
+Пользователь успешно зарегистрирован, в теле ответа будет объект со статусом регистрации и данными пользователя:
 
 ```json
 {
-  "username": "gleb@fokin.ru",
-  "email": "gleb@fokin.ru"
+    "message": "Пользователь был успешно создан!",
+    "result": {
+        "username": "Testtest",
+        "email": "test@test.ru",
+        "_id": 61
+    },
+    "success": true
 }
 ```
 
-#### 400 ответ
+#### 403 ответ
 
-Не получилось зарегистрировать пользователя с указанными данными, в теле ответа будет объект объект с ошибками регистрации:
+Не получилось зарегистрировать пользователя с указанными данными, в теле ответа будет указана причина:
 
 ```json
 {
-  "username": ["Пользователь с таким именем уже существует."],
-  "email": ["Пользователь с таким адрес электронной почты уже существует."],
-  "password": [
-    "Введённый пароль слишком короткий. Он должен содержать как минимум 8 символов.",
-    "Введённый пароль слишком широко распространён.",
-    "Введённый пароль состоит только из цифр."
-  ]
+    "message": "Введенный Email уже занят."
 }
 ```
 
@@ -105,8 +104,8 @@ fetch("https://webdev-music-003b5b991590.herokuapp.com/user/signup/", {
 fetch("https://webdev-music-003b5b991590.herokuapp.com/user/login/", {
   method: "POST",
   body: JSON.stringify({
-    email: "gleb@fokin.ru",
-    password: "gleb@fokin.ru",
+    email: "test@test.ru",
+    password: "test@test.ru",
   }),
   headers: {
     // API требует обязательного указания заголовка content-type, так апи понимает что мы посылаем ему json строчку в теле запроса
@@ -123,8 +122,9 @@ fetch("https://webdev-music-003b5b991590.herokuapp.com/user/login/", {
 
 ```json
 {
-  "username": "gleb@fokin.ru",
-  "email": "gleb@fokin.ru"
+    "email": "test@test.ru",
+    "username": "Testtest",
+    "_id": 61
 }
 ```
 
@@ -205,7 +205,7 @@ fetch("https://webdev-music-003b5b991590.herokuapp.com/user/token/", {
 Пример запроса:
 
 ```js
-fetch("https://skypro-music-api.skyeng.tech/user/token/refresh/", {
+fetch("https://webdev-music-003b5b991590.herokuapp.com/user/token/refresh/", {
   method: "POST",
   body: JSON.stringify({
     refresh:
@@ -236,7 +236,7 @@ Refresh токен невалидный, возвращает объект с о
 
 ```json
 {
-  "message": "Токен недействителен или просрочен",
+  "detail": "Токен недействителен или просрочен",
   "code": "token_not_valid"
 }
 ```
@@ -281,7 +281,7 @@ Refresh токен невалидный, возвращает объект с о
 const access =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkwOTcxMjcxLCJpYXQiOjE2OTA5NjAxMzEsImp0aSI6ImE4YzQ5NDNmOWNmNTRlZjI5NmFmNTMyOWUwODM4YWQ5IiwidXNlcl9pZCI6NzkyfQ.5n8YHTjsgAnYnc4gioyV1wPnxM2D16PS6c9kNhC-JoE";
 
-fetch("https://skypro-music-api.skyeng.tech/catalog/track/favorite/all/", {
+fetch("https://webdev-music-003b5b991590.herokuapp.com/catalog/track/favorite/all/", {
   method: "GET",
   headers: {
     Authorization: `Bearer ${access}`,

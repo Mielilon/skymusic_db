@@ -6,31 +6,50 @@ const asyncHandler = require("express-async-handler");
 const signup = asyncHandler(async (req, res) => {
   // Verify the email address is not used already.
   const verifyEmail = await userModel.findOne({ email: req.body.email });
-  try {
-    if (verifyEmail) {
-      return res.status(403).json({
-        message: "Введенный Email уже занят.",
-      });
-    } else {
-      //Hash the password before storing in the database.
-      bcrypt.hash(req.body.password, 10).then((hash) => {
-        const user = new userModel({
-          ...req.body,
-          password: hash,
-        });
+  const verifyUsername = await userModel.findOne({
+    username: req.body.username,
+  });
 
-        let result = user.save();
+  if (verifyEmail) {
+    return res.status(403).json({
+      message: "Введенный Email уже занят.",
+    });
+  } else if (verifyUsername) {
+    return res.status(403).json({
+      message: "Введенное имя пользователя уже занято.",
+    });
+  } else {
+    // Hash the password before storing it in the database.
+    bcrypt.hash(req.body.password, 10).then(async (hash) => {
+      const user = new userModel({
+        ...req.body,
+        password: hash,
+      });
+
+      try {
+        let result = await user.save();
         return res.status(201).json({
           message: "Пользователь был успешно создан!",
-          result,
+          result: {
+            username: result.username,
+            email: result.email,
+            _id: result._id,
+          },
           success: true,
         });
-      });
-    }
-  } catch (error) {
-    return res.status(412).send({
-      success: false,
-      message: error.message,
+      } catch (error) {
+        if (error.name === "ValidationError") {
+          return res.status(400).json({
+            success: false,
+            message: error.message,
+          });
+        }
+        console.error(error);
+        return res.status(500).send({
+          success: false,
+          message: "Внутренняя ошибка сервера",
+        });
+      }
     });
   }
 });
@@ -60,6 +79,7 @@ const login = asyncHandler(async (req, res) => {
         return res.status(200).json({
           email: loginUser.email,
           username: loginUser.username,
+          _id: loginUser._id,
         });
       }
     })
